@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+
+  sshd:
+    restart: always
+    image: sshd
+    build: ./build/sshd
+    container_name: sshd
+    ports:
+      - "22:22"
+    volumes:
+      - "./volumes/sshd:/ssh"
+    environment:
+      - USER=buraco
+      - MOTD=Welcome to argallar.net's ssh-tunnel
+
